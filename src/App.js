@@ -14,6 +14,18 @@ const App = () => {
   const [data] = jsonData;
 
   return (
+    <AppContext.Provider
+      value={{
+        answers,
+        setAnswers,
+        ...data,
+      }}
+    >
+      <Container>
+        <GlobalStyles />
+        <Header />
+      </Container>
+    </AppContext.Provider>
   );
 };
 
