@@ -24,6 +24,12 @@ const App = () => {
       <Container>
         <GlobalStyles />
         <Header />
+        <Routes>
+          <Route path="/" element={<Greeting />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="*" element={<h2>404 error</h2>} />
+        </Routes>
       </Container>
     </AppContext.Provider>
   );
