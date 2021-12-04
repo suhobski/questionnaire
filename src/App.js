@@ -4,11 +4,12 @@ import Header from "./components/Header";
 import Container from "./styles/Container";
 import { AppContext } from "./context";
 import jsonData from "./data.json";
-import MainContent from "./components/MainContent";
+import MainContent from "./styles/MainContent";
 import AppRouter from "./components/AppRouter";
 
 const App = () => {
   const [answers, setAnswers] = useState([]);
+  const [currentQuestionId, setCurrentQuestionId] = useState(1);
   const [name, setName] = useState("");
   const [data] = jsonData;
 
@@ -19,6 +20,8 @@ const App = () => {
         setAnswers,
         name,
         setName,
+        currentQuestionId,
+        setCurrentQuestionId,
         ...data,
       }}
     >

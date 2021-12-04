@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
   padding: 6px 12px;
@@ -6,6 +6,11 @@ const Button = styled.button`
   border-radius: 4px;
   outline: none;
   background: coral;
+  ${(props) =>
+    props.disabled &&
+    css`
+      background: lightgrey;
+    `}
 `;
 
 export default Button;

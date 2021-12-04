@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router";
-import Button from "../../components/Button";
-import TextInput from "../../components/TextInput";
+import Button from "../../styles/Button";
+import TextInput from "../../styles/TextInput";
 import { AppContext } from "../../context";
 import Wrap from "./Wrap";
 
