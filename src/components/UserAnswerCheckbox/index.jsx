@@ -2,13 +2,27 @@ import React, { useContext } from "react";
 import { AppContext } from "../../context";
 import Label from "../../styles/Label";
 
-const UserAnswerRadio = ({ question }) => {
+const UserAnswerCheckbox = ({ question }) => {
   const { id, answerType, answers: questAnswers, quest } = question;
   const { answers, setAnswers } = useContext(AppContext);
+  const isChecked = (item) => !!answers?.[id]?.answer.includes(item);
 
   const handleRadioChange = (e, answer) => {
     setAnswers((prev) => {
-      return { ...prev, [id]: { answer, answerType, quest } };
+      const checked = e.target.checked;
+      const prevQuestionAnswers = prev[id]?.answer || [];
+      let newQuestionAnswers;
+      if (checked) {
+        newQuestionAnswers = [...prevQuestionAnswers, answer];
+      } else {
+        newQuestionAnswers = prevQuestionAnswers.filter(
+          (item) => item.id !== answer.id
+        );
+      }
+      return {
+        ...prev,
+        [id]: { answer: newQuestionAnswers, answerType, quest },
+      };
     });
   };
 
@@ -19,7 +33,7 @@ const UserAnswerRadio = ({ question }) => {
           <input
             type={answerType}
             value={item.answer}
-            checked={answers[id]?.answer.id === item.id}
+            checked={isChecked(item)}
             onChange={(e) => handleRadioChange(e, item)}
           />
           {item.answer}
@@ -29,4 +43,4 @@ const UserAnswerRadio = ({ question }) => {
   );
 };
 
-export default UserAnswerRadio;
+export default UserAnswerCheckbox;

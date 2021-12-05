@@ -4,6 +4,7 @@ import Button from "../../styles/Button";
 import { AppContext } from "../../context";
 import Wrap from "../Greeting/Wrap";
 import UserAnswerRadio from "../../components/UserAnswerRadio";
+import UserAnswerCheckbox from "../../components/UserAnswerCheckbox";
 
 const Test = () => {
   const {
@@ -47,7 +48,9 @@ const Test = () => {
       {currentQuestion.answerType === "radio" && (
         <UserAnswerRadio question={currentQuestion} />
       )}
-      {/* {answerType === 'checkbox' && <UserAnswerCheckbox />} */}
+      {currentQuestion.answerType === "checkbox" && (
+        <UserAnswerCheckbox question={currentQuestion} />
+      )}
       {/* {answerType === 'text' && <UserAnswerText />} */}
 
       {/* <TextInput
