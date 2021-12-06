@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router";
-import styled from "styled-components";
-
-const Title = styled.h1`
-  text-align: center;
-  cursor: pointer;
-`;
+import { AppContext } from "../../context";
+import Title from "./Title";
 
 const Header = () => {
+  const { setName, setAnswers, setCurrentQuestionId } = useContext(AppContext);
   let navigate = useNavigate();
 
+  const titleClick = () => {
+    setName("");
+    setAnswers({});
+    setCurrentQuestionId(1);
+    navigate("/");
+  };
   return (
     <header>
-      <Title onClick={() => navigate("/")}>Questionnaire</Title>
+      <Title onClick={titleClick}>Questionnaire</Title>
     </header>
   );
 };
