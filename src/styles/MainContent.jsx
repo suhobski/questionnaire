@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 const MainContent = styled.main`
   padding: 20px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default MainContent;
