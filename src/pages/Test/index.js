@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router";
 import Button from "../../styles/Button";
 import { AppContext } from "../../context";
 import Wrap from "../Greeting/Wrap";
 import UserAnswerRadio from "../../components/UserAnswerRadio";
 import UserAnswerCheckbox from "../../components/UserAnswerCheckbox";
+import UserAnswerText from "../../components/UserAnswerText";
 
 const Test = () => {
   const {
@@ -18,9 +19,22 @@ const Test = () => {
   } = useContext(AppContext);
   let navigate = useNavigate();
 
-  const currentQuestion = questions.find(
-    (item) => item.id === currentQuestionId
-  );
+  const currentQuestion = useMemo(() => {
+    return questions.find((item) => item.id === currentQuestionId);
+  }, [questions, currentQuestionId]);
+
+  const inputType = useMemo(() => {
+    switch (currentQuestion.answerType) {
+      case "radio":
+        return <UserAnswerRadio question={currentQuestion} />;
+      case "checkbox":
+        return <UserAnswerCheckbox question={currentQuestion} />;
+      case "text":
+        return <UserAnswerText question={currentQuestion} />;
+      default:
+        return null;
+    }
+  }, [currentQuestion]);
 
   const buttonValue =
     currentQuestionId === questions.length ? nameFinishButton : nameNextButton;
@@ -45,18 +59,7 @@ const Test = () => {
     <Wrap onSubmit={handleSubmit}>
       <h3>Опрос проходит: {name}</h3>
       <p>{currentQuestion.quest}</p>
-      {currentQuestion.answerType === "radio" && (
-        <UserAnswerRadio question={currentQuestion} />
-      )}
-      {currentQuestion.answerType === "checkbox" && (
-        <UserAnswerCheckbox question={currentQuestion} />
-      )}
-      {/* {answerType === 'text' && <UserAnswerText />} */}
-
-      {/* <TextInput
-        value={answers[currentQuestionId] || ""}
-        onChange={handleInputChange}
-      /> */}
+      {inputType}
       <Button>{buttonValue}</Button>
     </Wrap>
   );
