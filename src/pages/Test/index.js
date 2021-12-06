@@ -44,10 +44,14 @@ const Test = () => {
       navigate("/");
     }
   });
-  console.log(`answers`, answers);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!answers[currentQuestionId]) {
+      return;
+    }
+
     if (currentQuestionId === questions.length) {
       navigate("/results");
     } else {
