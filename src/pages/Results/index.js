@@ -10,7 +10,7 @@ const Results = () => {
 
   useEffect(() => {
     if (!name) {
-      navigate("/");
+      navigate("/questionnaire");
     }
   });
 

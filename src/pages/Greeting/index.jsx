@@ -13,7 +13,7 @@ const Greeting = () => {
     <Wrap>
       <h3>Введите имя:</h3>
       <TextInput value={name} onChange={(e) => setName(e.target.value)} />
-      <Button onClick={() => navigate("/test")} disabled={!name}>
+      <Button onClick={() => navigate("/questionnaire/test")} disabled={!name}>
         {nameStartButton}
       </Button>
     </Wrap>

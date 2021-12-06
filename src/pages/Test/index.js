@@ -41,7 +41,7 @@ const Test = () => {
 
   useEffect(() => {
     if (!name) {
-      navigate("/");
+      navigate("/questionnaire");
     }
   });
 
@@ -53,7 +53,7 @@ const Test = () => {
     }
 
     if (currentQuestionId === questions.length) {
-      navigate("/results");
+      navigate("/questionnaire/results");
     } else {
       setCurrentQuestionId(currentQuestionId + 1);
     }

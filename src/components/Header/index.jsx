@@ -11,8 +11,9 @@ const Header = () => {
     setName("");
     setAnswers({});
     setCurrentQuestionId(1);
-    navigate("/");
+    navigate("/questionnaire");
   };
+  
   return (
     <header>
       <Title onClick={titleClick}>Questionnaire</Title>

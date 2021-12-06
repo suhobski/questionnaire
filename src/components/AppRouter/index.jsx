@@ -7,9 +7,9 @@ import Results from "../../pages/Results";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Greeting />} />
-      <Route path="/test" element={<Test />} />
-      <Route path="/results" element={<Results />} />
+      <Route path="/questionnaire" element={<Greeting />} />
+      <Route path="/questionnaire/test" element={<Test />} />
+      <Route path="/questionnaire/results" element={<Results />} />
       <Route path="*" element={<h2>404 error</h2>} />
     </Routes>
   );
