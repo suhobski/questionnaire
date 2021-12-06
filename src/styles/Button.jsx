@@ -6,6 +6,7 @@ const Button = styled.button`
   border-radius: 4px;
   outline: none;
   background: coral;
+  cursor: pointer;
   ${(props) =>
     props.disabled &&
     css`

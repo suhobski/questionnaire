@@ -41,6 +41,7 @@ export default createGlobalStyle`
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-family: sans-serif;
+    font-size: 20px;
     color: #5a5a65;
   }
   
