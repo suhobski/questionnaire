@@ -10,7 +10,7 @@ const UserAnswerCheckbox = ({ question }) => {
     setAnswers((prev) => {
       return {
         ...prev,
-        [id]: { answer: e.target.value, answerType, quest },
+        [id]: { userAnswer: e.target.value, answerType, quest },
       };
     });
   };
@@ -18,7 +18,7 @@ const UserAnswerCheckbox = ({ question }) => {
   return (
     <div>
       <TextInput
-        value={answers[id]?.answer || ""}
+        value={answers[id]?.userAnswer || ""}
         onChange={handleInputChange}
       />
     </div>

@@ -5,23 +5,23 @@ import Label from "../../styles/Label";
 const UserAnswerCheckbox = ({ question }) => {
   const { id, answerType, answers: questAnswers, quest } = question;
   const { answers, setAnswers } = useContext(AppContext);
-  const isChecked = (item) => !!answers?.[id]?.answer.includes(item);
+  const isChecked = (item) => Boolean(answers?.[id]?.userAnswer.includes(item));
 
-  const handleRadioChange = (e, answer) => {
+  const handleRadioChange = (e, userAnswer) => {
     setAnswers((prev) => {
       const checked = e.target.checked;
-      const prevQuestionAnswers = prev[id]?.answer || [];
+      const prevQuestionAnswers = prev[id]?.userAnswer || [];
       let newQuestionAnswers;
       if (checked) {
-        newQuestionAnswers = [...prevQuestionAnswers, answer];
+        newQuestionAnswers = [...prevQuestionAnswers, userAnswer];
       } else {
         newQuestionAnswers = prevQuestionAnswers.filter(
-          (item) => item.id !== answer.id
+          (item) => item.id !== userAnswer.id
         );
       }
       return {
         ...prev,
-        [id]: { answer: newQuestionAnswers, answerType, quest },
+        [id]: { userAnswer: newQuestionAnswers, answerType, quest },
       };
     });
   };

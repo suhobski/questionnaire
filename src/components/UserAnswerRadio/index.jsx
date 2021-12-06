@@ -6,9 +6,9 @@ const UserAnswerRadio = ({ question }) => {
   const { id, answerType, answers: questAnswers, quest } = question;
   const { answers, setAnswers } = useContext(AppContext);
 
-  const handleRadioChange = (e, answer) => {
+  const handleRadioChange = (e, userAnswer) => {
     setAnswers((prev) => {
-      return { ...prev, [id]: { answer, answerType, quest } };
+      return { ...prev, [id]: { userAnswer, answerType, quest } };
     });
   };
 
@@ -19,7 +19,7 @@ const UserAnswerRadio = ({ question }) => {
           <input
             type={answerType}
             value={item.answer}
-            checked={answers[id]?.answer.id === item.id}
+            checked={answers[id]?.userAnswer.id === item.id}
             onChange={(e) => handleRadioChange(e, item)}
           />
           {item.answer}
