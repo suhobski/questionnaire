@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import AnswerWrap from "./AnswerWrap";
 import ListItem from "./ListItem";
 import Question from "./Question";
@@ -33,5 +34,14 @@ const UserAnswerResult = ({ answer, index }) => {
     </AnswerWrap>
   );
 };
+
+UserAnswerResult.propTypes = {
+  answer: PropTypes.shape({
+    userAnswer: PropTypes.any,
+    answerType: PropTypes.string, 
+    quest: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+}
 
 export default UserAnswerResult;

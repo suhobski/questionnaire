@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from 'prop-types';
 import { AppContext } from "../../context";
 import Label from "../../styles/Label";
 
@@ -28,5 +29,15 @@ const UserAnswerRadio = ({ question }) => {
     </div>
   );
 };
+
+UserAnswerRadio.propTypes = {
+  question: PropTypes.shape({
+    id: PropTypes.number,
+    quest: PropTypes.string,
+    answerType: PropTypes.string, 
+    answers: PropTypes.array,
+  }).isRequired,
+}
+
 
 export default UserAnswerRadio;

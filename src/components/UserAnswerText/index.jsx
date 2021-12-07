@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
+import PropTypes from 'prop-types';
 import { AppContext } from "../../context";
 import TextInput from "../../styles/TextInput";
 
-const UserAnswerCheckbox = ({ question }) => {
+const UserAnswerText = ({ question }) => {
   const { id, answerType, quest } = question;
   const { answers, setAnswers } = useContext(AppContext);
 
@@ -25,4 +26,13 @@ const UserAnswerCheckbox = ({ question }) => {
   );
 };
 
-export default UserAnswerCheckbox;
+UserAnswerText.propTypes = {
+  question: PropTypes.shape({
+    id: PropTypes.number,
+    quest: PropTypes.string,
+    answerType: PropTypes.string, 
+    answers: PropTypes.string,
+  }).isRequired,
+}
+
+export default UserAnswerText;
