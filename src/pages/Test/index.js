@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router";
 import Button from "../../styles/Button";
 import { AppContext } from "../../context";
-import Wrap from "../Greeting/Wrap";
+import Wrap from "../../styles/Wrap";
 import UserAnswerRadio from "../../components/UserAnswerRadio";
 import UserAnswerCheckbox from "../../components/UserAnswerCheckbox";
 import UserAnswerText from "../../components/UserAnswerText";

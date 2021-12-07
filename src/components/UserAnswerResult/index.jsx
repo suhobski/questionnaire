@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import AnswerWrap from "./AnswerWrap";
+import PropTypes from "prop-types";
 import ListItem from "./ListItem";
 import Question from "./Question";
 
@@ -26,22 +25,22 @@ const UserAnswerResult = ({ answer, index }) => {
   };
 
   return (
-    <AnswerWrap>
+    <div>
       <Question>
         {index}. {quest}
       </Question>
       <PrintUserAnswer />
-    </AnswerWrap>
+    </div>
   );
 };
 
 UserAnswerResult.propTypes = {
   answer: PropTypes.shape({
     userAnswer: PropTypes.any,
-    answerType: PropTypes.string, 
+    answerType: PropTypes.string,
     quest: PropTypes.string,
   }).isRequired,
   index: PropTypes.number.isRequired,
-}
+};
 
 export default UserAnswerResult;

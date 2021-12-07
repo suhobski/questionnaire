@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import Button from "../../styles/Button";
 import TextInput from "../../styles/TextInput";
 import { AppContext } from "../../context";
-import Wrap from "./Wrap";
+import Wrap from "../../styles/Wrap";
 
 const Greeting = () => {
   const { name, setName, nameStartButton } = useContext(AppContext);
